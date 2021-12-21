@@ -520,11 +520,12 @@ function main() {
 
 document.body.appendChild( renderer.domElement );
 	//Camera
-	camera.position.x = 1000;
-	camera.position.y = 1000;
-	camera.position.z = 1000;
+	camera.position.x = 0;
+	camera.position.y = 35000;
+	camera.position.z = 0;
 	//camera.lookAt( 0, 0.1, 0 );
     controls = new OrbitControls( camera, renderer.domElement );
+	controls.enableRotate = false;
 	addLights();
 	
 	
@@ -783,7 +784,6 @@ function grid(){
 					uniforms[ "mieDirectionalG" ].value = effectController.mieDirectionalG;
 					uniforms[ "sunPosition" ].value.set(400000, 400000, 400000);
   */
-     
 
 					grid_infinity = new THREE.InfiniteGridHelper(10, 100);
 
@@ -792,6 +792,8 @@ function grid(){
 					};
 
 					addgridgui();
+
+					
 
 					// scene.add(grid_infinity);
 					
@@ -916,7 +918,7 @@ function animate()
 		
 					var pMaterial = new THREE.PointsMaterial({
 						map: texture,
-						size: 90,
+						size: 8,
 						transparent: true,
 						//sizeAttenuation: false,
 						vertexColors: THREE.VertexColors,
